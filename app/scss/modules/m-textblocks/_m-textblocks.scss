@@ -1,0 +1,16 @@
+.m-textblocks {
+	padding-top: 15px;
+	&__btn {
+		display: block;
+		margin: 0 auto 30px;
+	}
+	&__list {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap-reverse;
+		justify-content: center;
+		&-item {
+			margin: 0 5px 35px 5px;
+		}
+	}
+}

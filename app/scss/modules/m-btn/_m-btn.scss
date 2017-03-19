@@ -1,0 +1,77 @@
+.m-btn {
+	display: block;
+	position: relative;
+	padding: 15px 60px 15px 20px;
+	background-color: transparent;
+	border: 3px dashed $app-black;
+	color: $app-black;
+	font-size: 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: border-color .3s, color .3s linear;
+	overflow: hidden;
+	&:hover {
+		border-color: darken($app-green,25);
+		color: darken($app-green,25);
+	}
+	&:hover > .m-btn__icon {
+		transition: transform .8s, fill .3s linear;
+		transform: rotate(90deg);
+		fill: darken($app-green,25);
+	}
+	&__icon {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		right: 11px;
+		top: 50%;
+		margin-top: -15px;
+		fill: $app-black;
+	}
+}
+
+.m-btn--easy, .m-btn--hard, .m-btn--approve, .m-btn--cancel {
+	display: block;
+	width: 200px;
+	border: 3px dashed $pure-white;
+	color: $pure-white;
+	.m-btn__icon {
+		fill: $pure-white;
+	}
+}
+
+.m-btn--hard, .m-btn--cancel {
+  &:hover {
+	border-color: darken($app-red,10);
+	color: darken($app-red,10);
+  }
+  &:hover > .m-btn__icon {
+	fill: darken($app-red,10);
+  }
+}
+
+.m-btn--easy, .m-btn--hard {
+	&:hover > .m-btn__icon {
+		transition: opacity .8s, transform 1s, fill .3s linear;
+		opacity: 0;
+
+	}
+}
+.m-btn--easy {
+	&:hover > .m-btn__icon {
+		transform: translateX(50px);
+		fill: darken($app-green,25);
+	}
+}
+.m-btn--hard {
+	&:hover > .m-btn__icon {
+		transform: translate(50px, -50px);
+	}
+}
+
+.m-btn--approve {
+	&:hover > .m-btn__icon {
+		transition: transform .5s linear;
+		transform: scale(1.07);
+	}
+}
