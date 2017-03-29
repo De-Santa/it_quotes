@@ -1,13 +1,15 @@
-var gulp	= require('gulp'),
-	browserSync		= require('browser-sync').create(),
+var gulp          = require('gulp'),
+	browserSync     = require('browser-sync').create(),
+	concat          = require('gulp-concat'),
+	uglify          = require('gulp-uglify'),
 	sass            = require('gulp-sass'),
-    cssnano         = require('gulp-cssnano'),
+	cssnano         = require('gulp-cssnano'),
 	autoprefixer    = require('gulp-autoprefixer'),
 	rename          = require('gulp-rename'),
 	notify          = require("gulp-notify"),
 	svgSprite       = require('gulp-svg-sprite'),
-	cheerio         = require('gulp-cheerio');
-	ngrok           = require('ngrok');
+	cheerio         = require('gulp-cheerio'),
+	ngrok           = require('ngrok'),
 	gutil           = require('gulp-util');
 
 //BROWSER-SYNC OPTIONS
@@ -37,7 +39,7 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('scss', function() {
-	return gulp.src('app/scss/**/*.scss')
+	return gulp.src('app/scss/**/**/*.scss')
 		.pipe(sass().on("error", notify.onError()))
 		.pipe(rename({suffix: '.min', prefix : ''}))
 		.pipe(autoprefixer(['last 15 versions']))
@@ -46,10 +48,26 @@ gulp.task('scss', function() {
 		.pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('scripts-min', function() {
+	return gulp.src([
+		'./app/js/modules/textblock/quoteGenerator.js',
+		'./app/js/modules/textblock/blockRender.js',
+		'./app/js/modules/textblock/blockEvents.js',
+		'./app/js/modules/popups/popups.js',
+		'./app/js/modules/stats/statsEvents.js',
+		'./app/js/modules/stats/blockCounters.js',
+		'./app/js/modules/controls/add-block.js',
+		'./app/js/modules/svg-sprite/svg-sprite.js',
+		'app/js/main.js' //ALWAYS AT END
+	])
+		.pipe(concat('main.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('app/js'))
+});
+
 gulp.task('build-svg', function () {
 	return gulp.src('svg_workshop/sprite-input/*.svg')
 	//REMOVES STYLES FROM SVG
-	/*
 	.pipe(cheerio({
 	run: function ($) {
 	$('[fill]').removeAttr('fill');
@@ -57,7 +75,7 @@ gulp.task('build-svg', function () {
 	},
 	parserOptions: { xmlMode: true }
 	}))
-	*/
+
 
 	//BUILD-SPRITE
 	.pipe(svgSprite({
@@ -80,7 +98,7 @@ gulp.task('build-svg', function () {
 
 gulp.task('watch', ['scss', 'browser-sync'], function () {
 	gulp.watch('app/scss/**/*.scss', ['scss']);
-	gulp.watch('app/js/*.js', browserSync.reload);
+	gulp.watch('app/js/**/*.js', browserSync.reload);
 	gulp.watch('app/*.html', browserSync.reload);
 });
 

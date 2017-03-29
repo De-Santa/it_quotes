@@ -1,0 +1,15 @@
+html {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  background-color: #b3b2d0;
+}
+
+button:focus {outline:0;}

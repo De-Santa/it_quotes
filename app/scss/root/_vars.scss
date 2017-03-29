@@ -1,3 +1,12 @@
+$body-color: #b3b2d0;
+
+
+$color-block-green: #73e454;
+$color-block-red: #ff8080;
+$color-block-border: #333333;
+$color-block-selected: #ff9e4f;
+$color-block-content-bg: #ffffff;
+
 $app-green: #73e454;
 $app-black: #333333;
 $app-red: #ff8080;
@@ -5,11 +14,18 @@ $app-white: #c5c4c4;
 $pure-white: #ffffff;
 $app-orange: #ff9e4f;
 
+
 //THEME CHANGER
+
+//blue
 /*
-$app-green: #63ddff;
+$color-block-content-bg: #d2eaf5;
+$body-color: #a6a3dc;
+$app-green: #3af3ff;
 $app-black: #383058;
-$app-red: #eab733;
+$color-block-border: $app-black;
+$app-red: #ffa007;
 $app-white: #c5c4c4;
 $pure-white: #ffffff;
+$color-block-selected: #40e2dd;
 */

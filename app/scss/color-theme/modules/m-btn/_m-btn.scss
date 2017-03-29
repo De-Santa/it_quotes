@@ -1,0 +1,49 @@
+.m-btn {
+	border-color: $app-black;
+	color: $pure-white;
+	&:hover {
+		border-color: darken($app-green,25);
+	}
+	&:hover > .m-btn__icon {
+		fill: darken($app-green,25);
+	}
+	&__icon {
+		fill: $app-black;
+	}
+}
+
+.m-btn--easy, .m-btn--hard, .m-btn--approve, .m-btn--cancel, .m-btn--random, .m-btn--heavy, .m-btn--extra-heavy {
+	border-color: $pure-white;
+	color: $pure-white;
+	.m-btn__icon {
+		fill: $pure-white;
+	}
+}
+
+.m-btn--random, .m-btn--easy {
+  &:hover {
+	color: darken($app-green, 25);
+  }
+}
+
+.m-btn--hard, .m-btn--cancel, .m-btn--heavy, .m-btn--extra-heavy {
+  &:hover {
+	border-color: darken($app-red,10);
+	color: darken($app-red,10);
+  }
+  &:hover > .m-btn__icon {
+	fill: darken($app-red,10);
+  }
+}
+
+.m-btn--easy {
+	&:hover > .m-btn__icon {
+		fill: darken($app-green,25);
+	}
+}
+
+.m-btn--extra-heavy {
+  &:hover > .m-btn__icon {
+	fill: darken($app-red,10);
+  }
+}

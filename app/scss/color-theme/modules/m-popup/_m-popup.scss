@@ -1,0 +1,13 @@
+.m-popup {
+	background-color: rgba($app-black,0.97);
+	&__loader {
+		fill: darken($app-green,10);
+	 // animation: loader 2s linear both infinite;
+	}
+
+	&__content {
+		&-question {
+			color: $pure-white;
+		}
+	}
+}

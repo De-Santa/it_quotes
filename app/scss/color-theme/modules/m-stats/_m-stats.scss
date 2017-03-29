@@ -1,0 +1,23 @@
+.m-stats {
+	background-color: rgba($app-black,0.95);
+	&:hover {
+		.m-stats__title-icon {
+			color: $app-red;
+		}
+	}
+	&__title {
+		color: $pure-white;
+		&::before {
+			background-color: $pure-white;
+		}
+		&-icon {
+			fill: darken($app-green, 20);
+		}
+	}
+	&__counter {
+		color: $pure-white;
+	}
+	&__info {
+		color: $pure-white;
+	}
+}
